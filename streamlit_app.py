@@ -9,8 +9,15 @@ st.set_page_config(
 )
 
 # ---------- Sidebar / Navigation ----------
+# Initialize session state for page
+if 'page' not in st.session_state:
+    st.session_state.page = "Home"
+
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Projects", "Work Experience", "Skills", "Education & Certifications"])
+sidebar_page = st.sidebar.radio("Go to", ["Home", "Projects", "Work Experience", "Skills", "Education & Certifications"], key="sidebar_nav")
+
+# Update session state if sidebar changes
+st.session_state.page = sidebar_page
 
 ACCENT_COLOR = "#5BC0EB"  # light blue
 
@@ -22,7 +29,24 @@ def show_project_card(title, summary, link=None):
         st.markdown(f"[View Project]({link})")
     st.markdown("---")
 
+# ---------- Navigation Bar ----------
+# Display horizontal navigation bar
+nav_items = ["Home", "Projects", "Work Experience", "Skills", "Education & Certifications"]
+nav_cols = st.columns(len(nav_items))
+
+# Update page based on nav bar clicks
+for idx, item in enumerate(nav_items):
+    with nav_cols[idx]:
+        if st.button(item, key=f"nav_{item}"):
+            st.session_state.page = item
+            st.rerun()
+
+st.markdown("---")
+
 # ---------- Pages ----------
+# Use session state for page navigation
+page = st.session_state.page
+
 if page == "Home":
     st.title("Chiti Nkhuwa")
     st.markdown(f"### Data Scientist")
