@@ -1,7 +1,5 @@
 # streamlit_app.py
 import streamlit as st
-import requests
-from datetime import datetime
 
 # ---------- Page Config ----------
 st.set_page_config(
@@ -71,14 +69,14 @@ elif page == "Projects":
     
     st.markdown("### Additional Projects")
     show_project_card(
-        title="[ADD PROJECT 5 TITLE]",
-        summary="[Add project description]",
-        link="https://github.com/ChitiNkhuwa/[repo-name]"
+        title="Mineral Identification with Deep Learning",
+        summary="A deep learning project focused on classifying minerals using convolutional neural networks (CNNs). The project aims to develop a model capable of accurately distinguishing between different types of minerals based on images.",
+        link="https://github.com/ChitiNkhuwa/Mineral_Identification"
     )
     show_project_card(
-        title="[ADD PROJECT 6 TITLE]",
-        summary="[Add project description]",
-        link="https://github.com/ChitiNkhuwa/[repo-name]"
+        title="Spent Lithium-ion Battery Recycling (SLIBR) Classification",
+        summary="This project aims to classify spent lithium-ion batteries into cathode and anode mineral classes using Convolutional Neural Networks (CNNs) implemented in PyTorch. The classification model is trained on a dataset of images representing different types of spent lithium-ion batteries.",
+        link="https://github.com/ChitiNkhuwa/Lithium_Recycling_Classification"
     )
     show_project_card(
         title="[ADD PROJECT 7 TITLE]",
@@ -98,29 +96,40 @@ elif page == "Work Experience":
     st.title("Work Experience")
     
     st.markdown("---")
-    st.markdown("### [JOB TITLE]")
-    st.markdown("**Company:** [COMPANY NAME]")
-    st.markdown("**Duration:** [MONTH YEAR] - [MONTH YEAR]")
+    st.markdown("### Machine Learning Engineer (Freelance)")
+    st.markdown("**Duration:** January 2023 - Present")
+    st.markdown("**2+ years' experience** *(Projects completed in personal time, not conflicting with full-time roles)*")
     st.markdown("""
-    **Description:**
-    - [Key responsibility or achievement]
-    - [Key responsibility or achievement]
-    - [Key responsibility or achievement]
+    **Key Responsibilities:**
+    - Built and deployed machine learning models for real-world use cases, including predictive analytics and optimization projects
+    - Designed and maintained end-to-end data pipelines using Python, SQL, and cloud platforms
+    - Applied deep learning frameworks (PyTorch, TensorFlow) to computer vision and NLP tasks
+    - Delivered insights and model results to clients through dashboards, reports, and interactive visualizations
     """)
     
     st.markdown("---")
-    st.markdown("### [PREVIOUS JOB TITLE]")
-    st.markdown("**Company:** [COMPANY NAME]")
-    st.markdown("**Duration:** [MONTH YEAR] - [MONTH YEAR]")
+    st.markdown("### Staff Accountant")
+    st.markdown("**Nevada Copper Mines | Yerington, Nevada**")
+    st.markdown("**Duration:** April 2023 - August 2024")
     st.markdown("""
-    **Description:**
-    - [Key responsibility or achievement]
-    - [Key responsibility or achievement]
-    - [Key responsibility or achievement]
+    **Key Responsibilities:**
+    - Assisted with and analyzed cost reports, site-based financial statements and other financial information requests using Microsoft Dynamics 365
+    - Managed fixed asset accounting (Prepaids, Depreciation, CIP, Month end)
+    - Charged expenses to accounts, cost centers, and WBS elements by expertly analyzing invoices and expense reports
+    - Ensured timely management of month-end accounts payable work-papers
     """)
     
     st.markdown("---")
-    st.info("💡 **Add your work experience from LinkedIn:** Edit this section in `streamlit_app.py` with your actual positions, companies, and descriptions.")
+    st.markdown("### Data Analyst")
+    st.markdown("**Nevada Successful Solutions | Sparks, Nevada**")
+    st.markdown("**Duration:** December 2022 - April 2023")
+    st.markdown("""
+    **Key Responsibilities:**
+    - Analyzed credit worthiness of potential clients using regression models
+    - Proposed solutions and strategies to tackle business problems by coordinating with relevant teams
+    - Managed team interactions with clients and provided support in the business investment process
+    - Maintained accounting books by monitoring income and expenses to ensure the company maintained liquidity requirements
+    """)
 
 elif page == "Skills":
     st.title("Technical Skills")
