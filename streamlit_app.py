@@ -8,16 +8,9 @@ st.set_page_config(
     layout="wide",
 )
 
-# ---------- Sidebar / Navigation ----------
 # Initialize session state for page
 if 'page' not in st.session_state:
     st.session_state.page = "Home"
-
-st.sidebar.title("Navigation")
-sidebar_page = st.sidebar.radio("Go to", ["Home", "Projects", "Work Experience", "Skills", "Education & Certifications"], key="sidebar_nav")
-
-# Update session state if sidebar changes
-st.session_state.page = sidebar_page
 
 ACCENT_COLOR = "#5BC0EB"  # light blue
 
@@ -42,6 +35,15 @@ for idx, item in enumerate(nav_items):
             st.rerun()
 
 st.markdown("---")
+
+# ---------- Sidebar / Navigation ----------
+st.sidebar.title("Navigation")
+sidebar_page = st.sidebar.radio("Go to", ["Home", "Projects", "Work Experience", "Skills", "Education & Certifications"], index=nav_items.index(st.session_state.page), key="sidebar_nav")
+
+# Update session state if sidebar changes
+if sidebar_page != st.session_state.page:
+    st.session_state.page = sidebar_page
+    st.rerun()
 
 # ---------- Pages ----------
 # Use session state for page navigation
