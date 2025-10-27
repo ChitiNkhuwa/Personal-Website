@@ -1,5 +1,7 @@
 # streamlit_app.py
 import streamlit as st
+import requests
+from datetime import datetime
 
 # ---------- Page Config ----------
 st.set_page_config(
@@ -10,7 +12,7 @@ st.set_page_config(
 
 # ---------- Sidebar / Navigation ----------
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Projects", "Skills", "Education & Certifications"])
+page = st.sidebar.radio("Go to", ["Home", "Projects", "Work Experience", "Skills", "Education & Certifications"])
 
 ACCENT_COLOR = "#5BC0EB"  # light blue
 
@@ -27,6 +29,13 @@ if page == "Home":
     st.title("Chiti Nkhuwa")
     st.markdown(f"### Data Scientist")
     
+    # Profile Picture - Check if exists
+    try:
+        st.image("assets/profile_picture.jpg", caption="Chiti Nkhuwa", width=250)
+    except:
+        st.info("💡 **Upload your profile picture:** Place your image at `assets/profile_picture.jpg` to display it here.")
+        st.markdown("---")
+    
     st.markdown("""
     **Professional Summary:**  
     Data Scientist with a Master's in Business Analytics and AWS certification. Skilled in building and deploying ML/AI models with real-world applications across multiple industries.
@@ -36,6 +45,9 @@ if page == "Home":
 
 elif page == "Projects":
     st.title("Projects & Case Studies")
+    
+    # Featured Projects (Top 4)
+    st.markdown("### Featured Projects")
     show_project_card(
         title="Smart Leaf: Deep Learning-Based Multi-Crop Disease Detection",
         summary="SmartLeaf focuses on building a convolutional neural network (CNN) to classify and detect diseases in four crop species (Corn, Potato, Rice, and Wheat).",
@@ -56,8 +68,59 @@ elif page == "Projects":
         summary="EduSpend transforms a rich international dataset of tuition fees, living-cost indices, rent, visa charges, and insurance premiums into actionable insights for students, consultants, and policymakers.",
         link="https://github.com/ChitiNkhuwa/EduSpend-Cost-Predictor"
     )
+    
+    st.markdown("### Additional Projects")
+    show_project_card(
+        title="[ADD PROJECT 5 TITLE]",
+        summary="[Add project description]",
+        link="https://github.com/ChitiNkhuwa/[repo-name]"
+    )
+    show_project_card(
+        title="[ADD PROJECT 6 TITLE]",
+        summary="[Add project description]",
+        link="https://github.com/ChitiNkhuwa/[repo-name]"
+    )
+    show_project_card(
+        title="[ADD PROJECT 7 TITLE]",
+        summary="[Add project description]",
+        link="https://github.com/ChitiNkhuwa/[repo-name]"
+    )
+    show_project_card(
+        title="[ADD PROJECT 8 TITLE]",
+        summary="[Add project description]",
+        link="https://github.com/ChitiNkhuwa/[repo-name]"
+    )
+    
     st.markdown("---")
-    st.markdown("*Additional projects available upon request.*")
+    st.info("💡 **To see all projects:** Visit my [GitHub profile](https://github.com/ChitiNkhuwa)")
+
+elif page == "Work Experience":
+    st.title("Work Experience")
+    
+    st.markdown("---")
+    st.markdown("### [JOB TITLE]")
+    st.markdown("**Company:** [COMPANY NAME]")
+    st.markdown("**Duration:** [MONTH YEAR] - [MONTH YEAR]")
+    st.markdown("""
+    **Description:**
+    - [Key responsibility or achievement]
+    - [Key responsibility or achievement]
+    - [Key responsibility or achievement]
+    """)
+    
+    st.markdown("---")
+    st.markdown("### [PREVIOUS JOB TITLE]")
+    st.markdown("**Company:** [COMPANY NAME]")
+    st.markdown("**Duration:** [MONTH YEAR] - [MONTH YEAR]")
+    st.markdown("""
+    **Description:**
+    - [Key responsibility or achievement]
+    - [Key responsibility or achievement]
+    - [Key responsibility or achievement]
+    """)
+    
+    st.markdown("---")
+    st.info("💡 **Add your work experience from LinkedIn:** Edit this section in `streamlit_app.py` with your actual positions, companies, and descriptions.")
 
 elif page == "Skills":
     st.title("Technical Skills")
