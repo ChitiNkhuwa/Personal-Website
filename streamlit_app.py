@@ -1,6 +1,5 @@
 # streamlit_app.py
 import streamlit as st
-from PIL import Image
 
 # ---------- Page Config ----------
 st.set_page_config(
@@ -11,7 +10,7 @@ st.set_page_config(
 
 # ---------- Sidebar / Navigation ----------
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Projects", "Skills", "Education & Certifications", "Contact"])
+page = st.sidebar.radio("Go to", ["Home", "Projects", "Skills", "Education & Certifications"])
 
 ACCENT_COLOR = "#5BC0EB"  # light blue
 
@@ -28,19 +27,12 @@ if page == "Home":
     st.title("Chiti Nkhuwa")
     st.markdown(f"### Data Scientist")
     
-    cols = st.columns([1,2])
-    with cols[0]:
-        try:
-            st.image("assets/headshot.jpg", caption="Chiti Nkhuwa", width=200)
-        except:
-            st.write("")  # optional headshot
-    with cols[1]:
-        st.markdown("""
-        **Professional Summary:**  
-        Versatile professional with a Master’s in Business Analytics and AWS certification, blending machine learning expertise with a solid background in finance and operations. Skilled in building and deploying ML/AI models on GitHub and Hugging Face, with real-world applications in resource optimization, agriculture, mining, and sustainability.
-        """)
-        st.markdown("**Connect with me:**")
-        st.markdown(f"[LinkedIn](https://www.linkedin.com/in/chiti-nkhuwa-62b414159/) | [GitHub](https://github.com/ChitiNkhuwa) | [Hugging Face](https://huggingface.co/ChitiN7) | [Email](mailto:cnkhuwacn7@gmail.com)")
+    st.markdown("""
+    **Professional Summary:**  
+    Data Scientist with a Master's in Business Analytics and AWS certification. Skilled in building and deploying ML/AI models with real-world applications across multiple industries.
+    """)
+    st.markdown("**Connect with me:**")
+    st.markdown(f"[LinkedIn](https://www.linkedin.com/in/chiti-nkhuwa-62b414159/) | [GitHub](https://github.com/ChitiNkhuwa) | [Hugging Face](https://huggingface.co/ChitiN7) | [Email](mailto:cnkhuwacn7@gmail.com)")
 
 elif page == "Projects":
     st.title("Projects & Case Studies")
@@ -64,7 +56,8 @@ elif page == "Projects":
         summary="EduSpend transforms a rich international dataset of tuition fees, living-cost indices, rent, visa charges, and insurance premiums into actionable insights for students, consultants, and policymakers.",
         link="https://github.com/ChitiNkhuwa/EduSpend-Cost-Predictor"
     )
-    st.info("More projects coming soon!")
+    st.markdown("---")
+    st.markdown("*Additional projects available upon request.*")
 
 elif page == "Skills":
     st.title("Technical Skills")
@@ -84,17 +77,6 @@ elif page == "Education & Certifications":
     st.markdown("- AWS Certified: Cloud Practitioner")
     st.markdown("- SuperDataScience: Machine Learning, Deep Learning & AI")
 
-elif page == "Contact":
-    st.title("Contact Me")
-    st.write("Reach out via email or connect through LinkedIn / GitHub / Hugging Face.")
-    contact_name = st.text_input("Your Name")
-    contact_email = st.text_input("Email")
-    contact_message = st.text_area("Message")
-    if st.button("Send Message"):
-        st.success("Thank you! This is a demo — integrate with email or backend to receive messages.")
-        st.write("---")
-        st.write({"name": contact_name, "email": contact_email, "message": contact_message})
-
 # Footer
 st.markdown("---")
-st.markdown(f"Chiti Nkhuwa | Accent color: {ACCENT_COLOR}")
+st.markdown("© 2025 Chiti Nkhuwa. All rights reserved.")
