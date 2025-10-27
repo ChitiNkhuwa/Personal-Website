@@ -27,25 +27,26 @@ if page == "Home":
     st.title("Chiti Nkhuwa")
     st.markdown(f"### Data Scientist")
     
-    # Profile Picture - Check if exists
-    try:
-        st.image("assets/profile_picture.jpg", caption="Chiti Nkhuwa", width=250)
-    except:
-        st.info("💡 **Upload your profile picture:** Place your image at `assets/profile_picture.jpg` to display it here.")
-        st.markdown("---")
+    # Create columns for profile picture and summary
+    cols = st.columns([1, 2])
+    with cols[0]:
+        try:
+            st.image("assets/profile_picture.jpg", caption="Chiti Nkhuwa", width=250)
+        except:
+            st.info("💡 **Upload your profile picture:** Place your image at `assets/profile_picture.jpg` to display it here.")
     
-    st.markdown("""
-    **Professional Summary:**  
-    Data Scientist with a Master's in Business Analytics and AWS certification. Skilled in building and deploying ML/AI models with real-world applications across multiple industries.
-    """)
+    with cols[1]:
+        st.markdown("""
+        **Professional Summary:**  
+        Data Scientist with a Master's in Business Analytics and AWS certification. Skilled in building and deploying ML/AI models with real-world applications across multiple industries.
+        """)
+    
     st.markdown("**Connect with me:**")
     st.markdown(f"[LinkedIn](https://www.linkedin.com/in/chiti-nkhuwa-62b414159/) | [GitHub](https://github.com/ChitiNkhuwa) | [Hugging Face](https://huggingface.co/ChitiN7) | [Email](mailto:cnkhuwacn7@gmail.com)")
 
 elif page == "Projects":
     st.title("Projects & Case Studies")
     
-    # Featured Projects (Top 4)
-    st.markdown("### Featured Projects")
     show_project_card(
         title="Smart Leaf: Deep Learning-Based Multi-Crop Disease Detection",
         summary="SmartLeaf focuses on building a convolutional neural network (CNN) to classify and detect diseases in four crop species (Corn, Potato, Rice, and Wheat).",
@@ -66,8 +67,6 @@ elif page == "Projects":
         summary="EduSpend transforms a rich international dataset of tuition fees, living-cost indices, rent, visa charges, and insurance premiums into actionable insights for students, consultants, and policymakers.",
         link="https://github.com/ChitiNkhuwa/EduSpend-Cost-Predictor"
     )
-    
-    st.markdown("### Additional Projects")
     show_project_card(
         title="Mineral Identification with Deep Learning",
         summary="A deep learning project focused on classifying minerals using convolutional neural networks (CNNs). The project aims to develop a model capable of accurately distinguishing between different types of minerals based on images.",
@@ -77,16 +76,6 @@ elif page == "Projects":
         title="Spent Lithium-ion Battery Recycling (SLIBR) Classification",
         summary="This project aims to classify spent lithium-ion batteries into cathode and anode mineral classes using Convolutional Neural Networks (CNNs) implemented in PyTorch. The classification model is trained on a dataset of images representing different types of spent lithium-ion batteries.",
         link="https://github.com/ChitiNkhuwa/Lithium_Recycling_Classification"
-    )
-    show_project_card(
-        title="[ADD PROJECT 7 TITLE]",
-        summary="[Add project description]",
-        link="https://github.com/ChitiNkhuwa/[repo-name]"
-    )
-    show_project_card(
-        title="[ADD PROJECT 8 TITLE]",
-        summary="[Add project description]",
-        link="https://github.com/ChitiNkhuwa/[repo-name]"
     )
     
     st.markdown("---")
